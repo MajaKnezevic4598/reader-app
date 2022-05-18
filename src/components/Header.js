@@ -8,11 +8,11 @@ const Header = () => {
       <div className="header__logo-conteiner">
         <img src={img1} alt="logo" className="header__logo" />
       </div>
-      <Link to="/">
-        <div>Home</div>
+      <Link to="/" className="header__link">
+        Home
       </Link>
-      <Link to="/reading-card">
-        <div>Reading Card</div>
+      <Link to="/reading-card" className="header__link">
+        Reading Card
       </Link>
     </header>
   );

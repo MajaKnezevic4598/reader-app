@@ -3,6 +3,7 @@
 .header {
   width: 100vw;
   height: auto;
+  position: fixed;
   background-color: $darkPrimary;
   color: $whitePrimaryFont;
   display: flex;
@@ -17,5 +18,11 @@
   &__logo {
     width: 80px;
     height: 80px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $whitePrimaryFont;
+    letter-spacing: 0.1vw;
   }
 }
