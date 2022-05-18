@@ -1,8 +1,21 @@
+import Header from "./components/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ReadingCard from "./components/ReadingCard";
+import AllBooks from "./components/AllBooks";
+import PageNotFound from "./components/PageNotFound";
+
 function App() {
   return (
-    <div className="App">
-      <div>Hello</div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<AllBooks />} />
+          <Route path="/reading-card" element={<ReadingCard />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
