@@ -1,0 +1,40 @@
+@import "../styles/variables";
+
+.search-bar-component {
+  border: 1px solid $darkPrimary;
+  border-radius: 3px;
+
+  &__search-bar {
+    display: flex;
+  }
+  &__select {
+    width: 10vw;
+  }
+  &__form {
+    // border: 1px solid blue;
+    display: flex;
+    input[type="text"] {
+      font-family: $roboto-font-mono;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      width: 20vw;
+    }
+    .btn {
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $darkPrimary;
+      width: 4vw;
+
+      .btn-icon {
+        color: $whitePrimaryFont;
+        font-size: 1.8rem;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

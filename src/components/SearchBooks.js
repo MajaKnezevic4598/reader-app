@@ -1,5 +1,12 @@
+import "./SearchBooks.scss";
+import SearchBar from "./SearchBar";
+
 const SearchBooks = () => {
-  return <div>All Books</div>;
+  return (
+    <div className="search">
+      <SearchBar />
+    </div>
+  );
 };
 
 export default SearchBooks;
