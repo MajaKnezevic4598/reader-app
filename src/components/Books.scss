@@ -1,0 +1,43 @@
+@import "../styles/variables";
+
+.books-conteiner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  justify-content: space-between;
+  padding: 0 2rem;
+  .book-card {
+    width: 28vw;
+    max-width: 30vw;
+    // border: 1px solid $darkPrimary;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    margin-bottom: 4vh;
+    background-color: $backgroundCard;
+    h3 {
+      margin-bottom: 1.5vh;
+    }
+
+    &__img-conteiner {
+      height: 180px;
+      width: 150px;
+      //   border: 1px solid red;
+      margin: 1vh 0;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    & > div:last-of-type {
+      width: 100%;
+      margin-top: 1vh;
+      font-size: 2.2vh;
+    }
+  }
+}

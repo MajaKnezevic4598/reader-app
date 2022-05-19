@@ -3,6 +3,10 @@
 .search-bar-component {
   border: 1px solid $darkPrimary;
   border-radius: 3px;
+  margin: 0 auto;
+  margin-bottom: 5vh;
+
+  border: 1px solid red;
 
   &__search-bar {
     display: flex;
