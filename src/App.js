@@ -4,11 +4,12 @@ import { Provider } from "react-redux";
 import ReadingCard from "./components/ReadingCard";
 import SearchBooks from "./components/SearchBooks";
 import PageNotFound from "./components/PageNotFound";
+import store from "./redux/store";
 
 function App() {
   return (
     <>
-      <Provider>
+      <Provider store={store}>
         <BrowserRouter>
           <Header />
           <Routes>

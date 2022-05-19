@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import "./SearchBar.scss";
 import { BiSearch } from "react-icons/bi";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchBooksAll } from "../redux/books/booksListActions";
 
 const options = [
   { value: "All", label: "All" },
@@ -12,15 +14,20 @@ const options = [
 
 const SearchBar = () => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [input, setInput] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("allooo");
+    dispatch(fetchBooksAll(input, selectedOption.value));
   };
 
   useEffect(() => {
     console.log(selectedOption);
   }, [selectedOption]);
+
   return (
     <>
       <div className="search-bar-component">
@@ -32,7 +39,14 @@ const SearchBar = () => {
             className="search-bar-component__select"
           />
           <form onSubmit={handleSubmit} className="search-bar-component__form">
-            <input type="text" placeholder="Search..." />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+            />
 
             <button className="btn">
               <BiSearch className="btn-icon" />
