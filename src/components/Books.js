@@ -21,6 +21,16 @@ const Books = () => {
     setCurrentPage(pageNumber);
   };
 
+  const nextPage = () => {
+    if (currentPage >= 7) return;
+    setCurrentPage(currentPage + 1);
+  };
+
+  const previousPage = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+  };
+
   const bookList = currentBooks.map((book) => {
     const title = book.title;
     const author = book.author[0];
@@ -60,6 +70,9 @@ const Books = () => {
         booksPerPage={booksPerPage}
         totalBooks={books.length}
         paginate={paginate}
+        nextPage={nextPage}
+        previousPage={previousPage}
+        current={currentPage}
       />
     </div>
   );
