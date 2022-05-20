@@ -1,7 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Pagination from "./Pagination";
+import LoadingSpiner from "./LoadingSpiner";
 
 import "./Books.scss";
 
@@ -13,6 +14,8 @@ const Books = () => {
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
 
   const books = useSelector((state) => state.books.books);
+
+  const isLoading = useSelector((state) => state.books.loading);
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
   //change page
@@ -63,6 +66,8 @@ const Books = () => {
       </div>
     );
   });
+
+  if (isLoading) return <LoadingSpiner />;
   return (
     <div className="books-conteiner">
       <>{bookList}</>
