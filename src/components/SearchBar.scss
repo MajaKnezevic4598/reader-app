@@ -6,7 +6,7 @@
   margin: 0 auto;
   margin-bottom: 5vh;
 
-  border: 1px solid red;
+  //   border: 1px solid red;
 
   &__search-bar {
     display: flex;
@@ -17,6 +17,7 @@
   &__form {
     // border: 1px solid blue;
     display: flex;
+    margin-left: 0.5vw;
     input[type="text"] {
       font-family: $roboto-font-mono;
       border: none;

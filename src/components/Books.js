@@ -12,7 +12,7 @@ const Books = () => {
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
 
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.books);
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
   //change page
