@@ -2,6 +2,7 @@ import {
   ADD_TO_CARD,
   REMOVE_FROM_CARD,
   CLEAR_ALL_CARD,
+  CHANGE_READING_STATUS,
 } from "./readingCardTypes";
 
 const initialState = {
@@ -32,6 +33,17 @@ const readingCardReducer = (state = initialState, action) => {
 
     case CLEAR_ALL_CARD:
       return initialState;
+    case CHANGE_READING_STATUS:
+      console.log(action.payload.bookId);
+      console.log(action.payload.status);
+      return {
+        ...state,
+        card: state.card.map((item) => {
+          return item.worksID === action.payload.bookId
+            ? { ...item, readingStatus: action.payload.status }
+            : item;
+        }),
+      };
     default:
       return state;
   }

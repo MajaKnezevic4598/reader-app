@@ -10,7 +10,7 @@
 
   &__reading-list {
     height: 100%;
-    width: 60%;
+    width: 75%;
     border: 1px solid black;
     position: relative;
 
@@ -20,7 +20,7 @@
     }
     .reading-list-header {
       display: grid;
-      grid-template-columns: 40% 30% 15% 15%;
+      grid-template-columns: 35% 20% 10% 20% 15%;
       border: 1px solid blue;
       margin-bottom: 3vh;
 
@@ -32,7 +32,7 @@
     }
     .reading-list-item {
       display: grid;
-      grid-template-columns: 40% 30% 15% 15%;
+      grid-template-columns: 35% 20% 10% 20% 15%;
 
       font-size: 2.2vh;
       border: 1px solid green;
@@ -43,6 +43,7 @@
       .remove-book {
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 0.1rem;
         button {
           padding: 0.4rem;
@@ -71,7 +72,7 @@
 
   &__categories {
     height: 100%;
-    width: 40%;
+    width: 25%;
     border: 1px solid black;
   }
 }

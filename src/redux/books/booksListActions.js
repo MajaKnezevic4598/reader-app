@@ -2,6 +2,7 @@ import {
   FETCH_BOOKS_REQUEST,
   FETCH_BOOKS_SUCCESS,
   FETCH_BOOKS_FAILURE,
+
 } from "./booksListTypes";
 
 import axios from "axios";
@@ -26,6 +27,8 @@ export const fetchProductsFailure = (error) => {
   };
 };
 
+
+
 export const fetchBooksAll = (params, searchBy) => {
   return (dispatch) => {
     const replaceSpaces = params.split(" ").join("+");
@@ -35,7 +38,6 @@ export const fetchBooksAll = (params, searchBy) => {
       axios
         .get(`http://openlibrary.org/search.json?q=${replaceSpaces}&limit=20`)
         .then((response) => {
-          // response.data is the users
           const books = response.data;
           //we are making array of object with data that are going to be used in project
           const results = books.docs.map((result) => {
