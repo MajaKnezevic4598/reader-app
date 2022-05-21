@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Pagination from "./Pagination";
 import LoadingSpiner from "./LoadingSpiner";
+
+import { addToCard } from "../redux/readingCard/readingCardActions";
 
 import "./Books.scss";
 
@@ -18,7 +20,10 @@ const Books = () => {
   const isLoading = useSelector((state) => state.books.loading);
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
+  const dispatch = useDispatch();
+
   //change page
+  
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -35,14 +40,13 @@ const Books = () => {
   };
 
   const bookList = currentBooks.map((book) => {
+    // console.log(book);
     const title = book.title;
     const author = book.author[0];
     const worksID = book.worksID;
     const subjects = book.tags.slice(0, 2).join(", ");
     const openLibID = book.openLibID;
     const year = book.year;
-
-    console.log(subjects);
 
     return (
       <div className="book-card" key={uuidv4()}>
@@ -63,6 +67,12 @@ const Books = () => {
           <span style={{ fontWeight: "bold" }}>Subjects: </span>
           {subjects}
         </div>
+        <button
+          className="book-card__btn"
+          onClick={() => dispatch(addToCard(book))}
+        >
+          Add to reading card
+        </button>
       </div>
     );
   });

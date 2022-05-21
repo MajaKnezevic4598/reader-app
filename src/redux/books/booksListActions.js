@@ -78,5 +78,6 @@ const makeObject = (result) => {
     tags: result.subject || [],
     openLibID: result.cover_edition_key,
     worksID: result.key,
+    readingStatus: "none",
   };
 };

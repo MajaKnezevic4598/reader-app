@@ -10,5 +10,10 @@
 body {
   font-family: $roboto-font-mono;
   color: $fontColor;
-  min-height: 100vh;
+  //   min-height: 100vh;
+}
+
+button {
+  font-family: $roboto-font-mono;
+  border: none;
 }

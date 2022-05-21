@@ -24,10 +24,6 @@ const SearchBar = () => {
     dispatch(fetchBooksAll(input, selectedOption.value));
   };
 
-  useEffect(() => {
-    console.log(selectedOption);
-  }, [selectedOption]);
-
   return (
     <>
       <div className="search-bar-component">

@@ -17,7 +17,7 @@
     width: 100px;
     height: 100px;
     border: 10px solid #f3f3f3; /* Light grey */
-    border-top: 10px solid #383636; /* Black */
+    border-top: 10px solid $darkPrimary; /* Black */
     border-radius: 50%;
     margin: 0 auto;
     animation: spinner 1.5s linear infinite;
