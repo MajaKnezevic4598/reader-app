@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import "./SearchBar.scss";
 import { BiSearch } from "react-icons/bi";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchBooksAll } from "../redux/books/booksListActions";
 
 const options = [
@@ -20,19 +20,22 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("allooo");
     dispatch(fetchBooksAll(input, selectedOption.value));
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(fetchBooksAll(input, selectedOption.value));
-    }, 200);
+    }, 300);
 
     return () => {
       clearInterval(timer);
     };
   }, [input]);
+
+  useEffect(() => {
+    dispatch(fetchBooksAll(input, selectedOption.value));
+  }, [selectedOption]);
 
   return (
     <>
@@ -59,8 +62,6 @@ const SearchBar = () => {
             </button>
           </form>
         </div>
-
-        <div className="search-bar-component__search-dropdown"></div>
       </div>
     </>
   );

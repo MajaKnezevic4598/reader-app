@@ -75,7 +75,7 @@ const ReadingCard = () => {
 
           <button>Books - done</button>
         </div>
-        <div>b</div>
+        <div></div>
       </div>
     </div>
   );

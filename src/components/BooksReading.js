@@ -64,7 +64,7 @@ const BooksReading = () => {
 
   return (
     <div className="books-reading">
-      <h3>Currently reading</h3>
+      <h4>Currently reading</h4>
       {currentlyReading.map((item, index) => (
         <div key={uuidv4()} className="books-reading__book">
           <p>{index + 1}.</p>

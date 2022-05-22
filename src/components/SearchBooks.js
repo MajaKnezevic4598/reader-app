@@ -7,7 +7,8 @@ const SearchBooks = () => {
   return (
     <div className="search">
       <SearchBar />
-      <ClearSearch />
+      {/* <ClearSearch /> */}
+      {/* the idea was to hava a butoon that clears all books */}
       <Books />
     </div>
   );

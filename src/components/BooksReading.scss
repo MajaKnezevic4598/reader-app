@@ -2,13 +2,20 @@
 
 .books-reading {
   margin-top: 20vh;
+
+  h4 {
+    text-align: center;
+    margin-bottom: 3vh;
+  }
   &__book {
-    width: 100%;
-    border: 1px solid black;
+    width: 95%;
+    // border: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
     flex-wrap: wrap;
     padding: 0.5rem 1rem;
     align-items: center;
+    margin: 0 auto;
 
     & > p:nth-of-type(2) {
       margin-left: 1rem;
@@ -17,9 +24,10 @@
 
     .add-notes {
       padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      border-radius: 4px;
       margin-left: auto;
-      background-color: $lightBlue;
+      background-color: $darkBlue;
+      color: $whitePrimaryFont;
 
       cursor: pointer;
     }
@@ -57,7 +65,7 @@
 }
 
 .add-notes-form {
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -74,6 +82,10 @@
   }
   & > p {
     margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  label {
+    font-weight: bold;
   }
   .select-rate {
     margin-bottom: 1rem;
@@ -89,8 +101,9 @@
   }
 
   button {
-    padding: 0.5rem 1rem;
-    background-color: $lightBlue;
+    padding: 1rem;
+    background-color: $darkBlue;
+    color: $whitePrimaryFont;
     width: 15vw;
     margin: 0 auto;
     border-radius: 4px;
