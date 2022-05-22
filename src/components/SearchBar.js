@@ -24,6 +24,16 @@ const SearchBar = () => {
     dispatch(fetchBooksAll(input, selectedOption.value));
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(fetchBooksAll(input, selectedOption.value));
+    }, 200);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [input]);
+
   return (
     <>
       <div className="search-bar-component">
