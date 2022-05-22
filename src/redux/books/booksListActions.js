@@ -2,7 +2,6 @@ import {
   FETCH_BOOKS_REQUEST,
   FETCH_BOOKS_SUCCESS,
   FETCH_BOOKS_FAILURE,
-
 } from "./booksListTypes";
 
 import axios from "axios";
@@ -26,8 +25,6 @@ export const fetchProductsFailure = (error) => {
     payload: error,
   };
 };
-
-
 
 export const fetchBooksAll = (params, searchBy) => {
   return (dispatch) => {
@@ -81,5 +78,7 @@ const makeObject = (result) => {
     openLibID: result.cover_edition_key,
     worksID: result.key,
     readingStatus: "none",
+    notes: [],
+    isInCard: false,
   };
 };

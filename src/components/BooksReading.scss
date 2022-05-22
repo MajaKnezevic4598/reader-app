@@ -1,0 +1,57 @@
+@import "../styles/variables";
+
+.books-reading {
+  margin-top: 20vh;
+  &__book {
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+    align-items: center;
+
+    & > p:nth-of-type(2) {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .add-notes {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      margin-left: auto;
+      background-color: $darkBlue;
+      color: $whitePrimaryFont;
+      cursor: pointer;
+    }
+  }
+}
+
+.Modal {
+  position: absolute;
+  top: 5vh;
+  bottom: 5vh;
+  left: 10vw;
+  right: 10vw;
+  border-radius: 4px;
+
+  background-color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.close-modal {
+  background-color: $darkPrimary;
+  color: $whitePrimaryFont;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

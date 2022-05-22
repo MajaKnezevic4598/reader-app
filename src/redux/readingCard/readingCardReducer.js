@@ -13,15 +13,16 @@ const readingCardReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CARD:
       const ID = action.payload.book.worksID;
-      const inCard = state.card.some((item) => item.worksID === ID);
+      console.log(state.card);
+      // const inCard = state.card.some((item) => item.worksID === ID);
+      // state.card.map((item) => console.log(item));
+
+      const a = state.card.some((item) => item.worksID === ID);
+      if (a) return state;
 
       return {
         ...state,
-        card: !inCard
-          ? [...state.card, action.payload.book]
-          : state.card.map((item) =>
-              item.worksID === ID ? { ...item, isInCard: true } : item
-            ),
+        card: [...state.card, { ...action.payload.book, isInCard: true }],
       };
     case REMOVE_FROM_CARD:
       return {

@@ -16,14 +16,20 @@ const Books = () => {
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
 
   const books = useSelector((state) => state.books.books);
+  const booksInCard = useSelector((state) => state.card.card);
+
+  //need to create function that checks if book with certaing ID is in the card or not
+  //we need to loop true bookList
 
   const isLoading = useSelector((state) => state.books.loading);
+  const isInCard = useSelector((state) => state.card.card);
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+  console.log(isInCard);
 
   const dispatch = useDispatch();
 
   //change page
-  
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -48,6 +54,12 @@ const Books = () => {
     const openLibID = book.openLibID;
     const year = book.year;
 
+    const areInCard = booksInCard.some(
+      (item) => item.worksID === worksID && item.isInCard
+    );
+    console.log(areInCard);
+    console.log("proverava da li je taj item u korpi");
+
     return (
       <div className="book-card" key={uuidv4()}>
         <h3>
@@ -71,7 +83,7 @@ const Books = () => {
           className="book-card__btn"
           onClick={() => dispatch(addToCard(book))}
         >
-          Add to reading card
+          {areInCard ? "book added" : "Add to reading card"}
         </button>
       </div>
     );

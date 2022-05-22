@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import ReadingCard from "./components/ReadingCard";
 import SearchBooks from "./components/SearchBooks";
+import BooksReading from "./components/BooksReading";
 import PageNotFound from "./components/PageNotFound";
 import store from "./redux/store";
 
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<SearchBooks />} />
               <Route path="/reading-card" element={<ReadingCard />} />
+              <Route path="/books-reading" element={<BooksReading />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>

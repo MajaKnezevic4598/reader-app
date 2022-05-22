@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./ReadingCard.scss";
+import { Link } from "react-router-dom";
 
 import Select from "react-select";
 import { v4 as uuidv4 } from "uuid";
@@ -18,17 +19,6 @@ const options = [
 
 const ReadingCard = () => {
   const card = useSelector((state) => state.card.card);
-
-  //Add/Remove checked item from list
-  // const handleCheck = (event) => {
-  //   let updatedList = [...checked];
-  //   if (event.target.checked) {
-  //     updatedList = [...checked, event.target.value];
-  //   } else {
-  //     updatedList.splice(checked.indexOf(event.target.value), 1);
-  //   }
-  //   setChecked(updatedList);
-  // };
 
   const dispatch = useDispatch();
 
@@ -73,11 +63,20 @@ const ReadingCard = () => {
             className="clear-all-list"
             onClick={() => dispatch(clearAllCard())}
           >
-            Clear all list
+            Clear all books
           </button>
         )}
       </div>
-      <div className="reading-card__categories">b</div>
+      <div className="reading-card__categories">
+        <div className="buttons-continer">
+          <Link to="/books-reading">
+            <button>Books - reading </button>
+          </Link>
+
+          <button>Books - done</button>
+        </div>
+        <div>b</div>
+      </div>
     </div>
   );
 };
