@@ -2,3 +2,4 @@ export const ADD_TO_CARD = "ADD_TO_CARD";
 export const REMOVE_FROM_CARD = "REMOVE_FROM_CARD";
 export const CLEAR_ALL_CARD = "CLEAR_ALL_CARD";
 export const CHANGE_READING_STATUS = "CHANGE_READING_STATUS";
+export const ADD_NOTES = "ADD_NOTES";

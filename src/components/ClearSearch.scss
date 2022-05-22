@@ -1,0 +1,11 @@
+@import "../styles/variables";
+.clear-search {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  padding: 0.8rem 1rem;
+  background-color: $darkPrimary;
+  color: $whitePrimaryFont;
+  cursor: pointer;
+  border-radius: 4px;
+}

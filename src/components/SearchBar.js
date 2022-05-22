@@ -49,6 +49,7 @@ const SearchBar = () => {
             </button>
           </form>
         </div>
+
         <div className="search-bar-component__search-dropdown"></div>
       </div>
     </>

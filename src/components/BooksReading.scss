@@ -19,8 +19,8 @@
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       margin-left: auto;
-      background-color: $darkBlue;
-      color: $whitePrimaryFont;
+      background-color: $lightBlue;
+
       cursor: pointer;
     }
   }
@@ -28,12 +28,12 @@
 
 .Modal {
   position: absolute;
-  top: 5vh;
-  bottom: 5vh;
+  top: 3vh;
+  bottom: 3vh;
   left: 10vw;
   right: 10vw;
   border-radius: 4px;
-
+  padding: 1rem;
   background-color: white;
 }
 
@@ -54,4 +54,48 @@
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.add-notes-form {
+  border: 1px solid black;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin: 5vh auto;
+  padding: 1rem;
+  input[type="text"] {
+    display: block;
+
+    height: 2.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    outline: none;
+    font-family: $roboto-font-mono;
+  }
+  & > p {
+    margin-bottom: 0.5rem;
+  }
+  .select-rate {
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    margin-bottom: 1rem;
+    resize: none;
+    border-radius: 4px;
+    outline: none;
+    height: 10vh;
+    padding: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: $lightBlue;
+    width: 15vw;
+    margin: 0 auto;
+    border-radius: 4px;
+
+    font-weight: bold;
+    cursor: pointer;
+  }
 }

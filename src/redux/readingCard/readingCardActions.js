@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_CARD,
   CLEAR_ALL_CARD,
   CHANGE_READING_STATUS,
+  ADD_NOTES
 } from "./readingCardTypes";
 
 export const addToCard = (book) => {
@@ -38,3 +39,13 @@ export const changeReadingStatus = (id, status) => {
     },
   };
 };
+
+export const addNotes = (id,notes) =>{
+  return {
+    type:ADD_NOTES,
+    payload:{
+      bookId:id,
+      notes:notes
+    }
+  }
+}
