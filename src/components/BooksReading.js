@@ -94,7 +94,28 @@ const BooksReading = () => {
 
   return (
     <div className="books-reading">
-      <h4>Currently reading</h4>
+      <div className="books-reading__header">
+        <h4>Currently reading</h4>
+        <div className="input-search-conteiner">
+          <input
+            type="text"
+            placeholder="Search by title..."
+            onChange={(e) => {
+              searchBook(e.target.value);
+            }}
+          />
+          <div className="show-results">
+            {booksMatched &&
+              booksMatched.map((item, index) => {
+                return (
+                  <div className="show-item" key={index}>
+                    {item.title}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
       {currentlyReading.map((item, index) => (
         <div key={uuidv4()} className="books-reading__book">
           <p>{index + 1}.</p>
@@ -119,22 +140,6 @@ const BooksReading = () => {
           </button>
         </div>
       ))}
-
-      <div>
-        <input
-          type="text"
-          placeholder="Search by title..."
-          onChange={(e) => {
-            searchBook(e.target.value);
-          }}
-        />
-        <div>
-          {booksMatched &&
-            booksMatched.map((item, index) => {
-              return <div key={index}>{item.title}</div>;
-            })}
-        </div>
-      </div>
 
       <Modal isOpen={modalIsOpen} className="Modal" overlayClassName="Overlay">
         <h3>Notes about "{currentBook.title}"</h3>
