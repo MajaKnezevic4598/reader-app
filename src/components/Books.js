@@ -25,8 +25,6 @@ const Books = () => {
   const isInCard = useSelector((state) => state.card.card);
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
-  console.log(isInCard);
-
   const dispatch = useDispatch();
 
   //change page
@@ -57,8 +55,6 @@ const Books = () => {
     const areInCard = booksInCard.some(
       (item) => item.worksID === worksID && item.isInCard
     );
-    console.log(areInCard);
-    console.log("proverava da li je taj item u korpi");
 
     return (
       <div className="book-card" key={uuidv4()}>

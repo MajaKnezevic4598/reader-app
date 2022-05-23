@@ -14,9 +14,7 @@ const readingCardReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CARD:
       const ID = action.payload.book.worksID;
-      console.log(state.card);
-      // const inCard = state.card.some((item) => item.worksID === ID);
-      // state.card.map((item) => console.log(item));
+      // console.log(state.card);
 
       const a = state.card.some((item) => item.worksID === ID);
       if (a) return state;
@@ -47,8 +45,6 @@ const readingCardReducer = (state = initialState, action) => {
     case CLEAR_ALL_CARD:
       return initialState;
     case CHANGE_READING_STATUS:
-      console.log(action.payload.bookId);
-      console.log(action.payload.status);
       return {
         ...state,
         card: state.card.map((item) => {

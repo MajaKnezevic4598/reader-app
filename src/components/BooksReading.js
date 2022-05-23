@@ -1,13 +1,10 @@
 import "./BooksReading.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import Select from "react-select";
 import { addNotes } from "../redux/readingCard/readingCardActions";
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
-
 import { v4 as uuidv4 } from "uuid";
-import SearchBooks from "./SearchBooks";
 
 Modal.setAppElement("#root");
 
@@ -23,7 +20,6 @@ const BooksReading = () => {
   const [currentBook, setCurrentBook] = useState({});
 
   //state for autocomplete
-  const [books, setBooks] = useState([]);
   const [booksMatched, setBooksMatched] = useState([]);
 
   //helper function for searching matching books
@@ -31,7 +27,6 @@ const BooksReading = () => {
     if (!text) {
       setBooksMatched([]);
     } else {
-      console.log(text);
       let matches = items.filter((item) => {
         const regex = new RegExp(`${text}`, "gi");
         return item.title.match(regex);
@@ -40,10 +35,6 @@ const BooksReading = () => {
       setBooksMatched(matches);
     }
   };
-
-  useEffect(() => {
-    console.log(booksMatched);
-  }, [booksMatched]);
 
   //state from form add notes
   const [selectedOption, setSelectedOption] = useState("");
@@ -64,11 +55,7 @@ const BooksReading = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
-    console.log("this is form state");
     dispatch(addNotes(currentBook.id, formState));
-    // setFormState({ genre: "", topics: "", quotations: "", select: "" });
-    // setSelectedOption("");
   };
 
   useEffect(() => {
@@ -83,14 +70,11 @@ const BooksReading = () => {
   const currentlyReading = booksFromReadingCard.filter(
     (item) => item.readingStatus === "reading"
   );
-  console.log(currentlyReading);
 
   //items for autocomplete
   const items = currentlyReading.map((curr, index) => {
     return { id: index, title: curr.title, author: curr.author[0] };
   });
-
-  console.log(items);
 
   return (
     <div className="books-reading">
