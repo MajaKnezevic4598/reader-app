@@ -4,8 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import Select from "react-select";
 import { addNotes } from "../redux/readingCard/readingCardActions";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import { v4 as uuidv4 } from "uuid";
+import SearchBooks from "./SearchBooks";
 
 Modal.setAppElement("#root");
 
@@ -19,6 +21,29 @@ const options = [
 const BooksReading = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentBook, setCurrentBook] = useState({});
+
+  //state for autocomplete
+  const [books, setBooks] = useState([]);
+  const [booksMatched, setBooksMatched] = useState([]);
+
+  //helper function for searching matching books
+  const searchBook = (text) => {
+    if (!text) {
+      setBooksMatched([]);
+    } else {
+      console.log(text);
+      let matches = items.filter((item) => {
+        const regex = new RegExp(`${text}`, "gi");
+        return item.title.match(regex);
+      });
+
+      setBooksMatched(matches);
+    }
+  };
+
+  useEffect(() => {
+    console.log(booksMatched);
+  }, [booksMatched]);
 
   //state from form add notes
   const [selectedOption, setSelectedOption] = useState("");
@@ -60,7 +85,12 @@ const BooksReading = () => {
   );
   console.log(currentlyReading);
 
-  //styles from select component
+  //items for autocomplete
+  const items = currentlyReading.map((curr, index) => {
+    return { id: index, title: curr.title, author: curr.author[0] };
+  });
+
+  console.log(items);
 
   return (
     <div className="books-reading">
@@ -89,6 +119,23 @@ const BooksReading = () => {
           </button>
         </div>
       ))}
+
+      <div>
+        <input
+          type="text"
+          placeholder="Search by title..."
+          onChange={(e) => {
+            searchBook(e.target.value);
+          }}
+        />
+        <div>
+          {booksMatched &&
+            booksMatched.map((item, index) => {
+              return <div key={index}>{item.title}</div>;
+            })}
+        </div>
+      </div>
+
       <Modal isOpen={modalIsOpen} className="Modal" overlayClassName="Overlay">
         <h3>Notes about "{currentBook.title}"</h3>
         <p>Author: {currentBook.author} </p>
