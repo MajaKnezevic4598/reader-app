@@ -72,9 +72,10 @@ const ReadingCard = () => {
           <Link to="/books-reading">
             <button>Books - reading </button>
           </Link>
-          {/* //needs to add functionality for books-done - the same solution as for
-          books-reading */}
-          <button>Books - done</button>
+
+          <Link to="/books-done">
+            <button>Books - done</button>
+          </Link>
         </div>
         <div></div>
       </div>
